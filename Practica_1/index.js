@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
-const PORT = 3000; // Puerto en el que escuchará el servidor
+const PORT = 3000; 
 
 app.get("/", (req, res)=>{
     const saludo = { mensaje: "Hola mundo, desde nodejs"}
     return res.json(saludo);
 })
 
-// 200 OK: Petición exitosa estándar (GET, PUT, PATCH)
+
 app.get('/api/v1/pizzas', (req, res) => {
   res.status(200).json({
     status: 200,
@@ -122,7 +122,7 @@ app.get('/api/v1/bebidas', (req, res) => {
 });
 
 
-// Iniciar el servidor
+
 app.listen(PORT, () => {
   console.log(`Servidor Express escuchando en el puerto ${PORT}`);
 });
