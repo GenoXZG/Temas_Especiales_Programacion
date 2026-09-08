@@ -1,6 +1,6 @@
 
 import express from "express";
-import {ObtnerPizzas} from './repositorios/repositorio.js'
+import {ObtnerPizzas, obtenerPizzaPorIdAsync, agregarPizzaAsync , actualizarPizzaAsync , borrarPizzaAsync} from './repositorios/repositorio.js'
 const app = express();
 const PORT = 3000; 
 
@@ -12,7 +12,6 @@ app.get("/", (req, res)=>{
 
 app.get('/api/v1/pizzas', (req, res) => {
   res.status(200).json({
-    status: 200,
     message: 'Pizzas obtenidas exitosamente',
     data: {
       pizzas_disponibles: [
@@ -47,7 +46,6 @@ app.get('/api/v1/pizzas', (req, res) => {
 
 app.get('/api/v1/tamanios', (req, res) => {
   res.status(200).json({
-    status: 200,
     message: 'Tamaños obtenidos exitosamente',
     data: {
       tamanios_disponibles: [
@@ -86,7 +84,6 @@ app.get('/api/v1/tamanios', (req, res) => {
 
 app.get('/api/v1/bebidas', (req, res) => {
   res.status(200).json({
-    status: 200,
     message: 'Bebidas obtenidas exitosamente',
     data: {
       bebidas_disponibles: [
@@ -129,6 +126,29 @@ app.get('/api/v1/async', async(req, res) => {
   const pizzas = await ObtnerPizzas();
   res.status(200).json(pizzas);
 });
+
+
+// Funcion que simula el flujo del CRUD
+async function probarCrud() {
+
+    console.log("--- LISTA INICIAL ---")
+    console.log( await ObtnerPizzas());
+
+    console.log("\nAgregando nueva pizza...")
+    await agregarPizzaAsync({ id: 2, nombre: "Peperoni", descripcion: "Queso y peperoni" })
+    console.log(await ObtnerPizzas())
+
+    console.log("\nActualizando la pizza con id 1...")
+    await actualizarPizzaAsync(1, { descripcion: "Jamon, piña y extra queso" })
+    console.log(await ObtnerPizzas())
+
+    console.log("\nBorrando la pizza con id 2...")
+    await borrarPizzaAsync(2)
+    console.log("\n--- LISTA FINAL ---")
+    console.log(await ObtnerPizzas())
+}
+
+probarCrud();
 
 
 
