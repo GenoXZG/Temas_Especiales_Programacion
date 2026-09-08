@@ -1,4 +1,6 @@
-const express = require("express");
+
+import express from "express";
+import {ObtnerPizzas} from './repositorios/repositorio.js'
 const app = express();
 const PORT = 3000; 
 
@@ -119,6 +121,13 @@ app.get('/api/v1/bebidas', (req, res) => {
       ]
     }
   });
+});
+
+
+app.get('/api/v1/async', async(req, res) => {
+  
+  const pizzas = await ObtnerPizzas();
+  res.status(200).json(pizzas);
 });
 
 
