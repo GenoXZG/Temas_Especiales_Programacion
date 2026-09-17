@@ -188,5 +188,4 @@ proyecto/
 
 - MongoDB debe estar activo antes de iniciar la API.
 - El puerto de la cadena de conexión debe coincidir con el puerto publicado por MongoDB.
-- El servidor Express utiliza de forma predeterminada el puerto `3000`.
-- La carpeta `node_modules` no debe incluirse en el repositorio.
+- El servidor Express utiliza de forma predeterminada el puerto 3000.
