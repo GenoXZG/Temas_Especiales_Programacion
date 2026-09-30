@@ -1,0 +1,62 @@
+Resultados k6 — funcional
+URL: http://localhost:3000
+
+Métricas (duraciones en ms):
+http_req_duration{expected_response:true}: {"p(95)":36.51931879999997,"avg":10.876574142857143,"min":2.399222,"med":4.473111,"max":46.676396,"p(90)":26.36224160000001}
+http_req_duration{paso:listar}: {"p(90)":46.676396,"p(95)":46.676396,"avg":46.676396,"min":46.676396,"med":46.676396,"max":46.676396}
+  APROBADO: p(95)<500
+data_received: {"count":2935,"rate":2719.744149451563}
+vus: {"value":1,"min":1,"max":1}
+http_reqs: {"count":7,"rate":6.486612962916845}
+http_req_sending: {"med":0.010538,"max":0.033398,"p(90)":0.025058000000000004,"p(95)":0.02922799999999999,"avg":0.014882571428571429,"min":0.00843}
+vus_max: {"max":1,"value":1,"min":1}
+http_req_duration{paso:actualizar}: {"avg":4.512493,"min":4.512493,"med":4.512493,"max":4.512493,"p(90)":4.512493,"p(95)":4.512493}
+  APROBADO: p(95)<500
+http_req_duration{paso:consultar}: {"p(95)":2.645412,"avg":2.645412,"min":2.645412,"med":2.645412,"max":2.645412,"p(90)":2.645412}
+  APROBADO: p(95)<500
+http_req_waiting: {"med":4.410849,"max":46.568268,"p(90)":26.260171800000016,"p(95)":36.41421989999998,"avg":10.797401285714287,"min":2.334935}
+http_req_receiving: {"p(95)":0.07981819999999999,"avg":0.06429028571428572,"min":0.050758,"med":0.058061,"max":0.080369,"p(90)":0.0792674}
+http_req_duration: {"p(95)":36.51931879999997,"avg":10.876574142857143,"min":2.399222,"med":4.473111,"max":46.676396,"p(90)":26.36224160000001}
+http_req_duration{paso:verificar_eliminacion}: {"avg":2.399222,"min":2.399222,"med":2.399222,"max":2.399222,"p(90)":2.399222,"p(95)":2.399222}
+  APROBADO: p(95)<500
+http_req_duration{paso:eliminar}: {"p(90)":4.473111,"p(95)":4.473111,"avg":4.473111,"min":4.473111,"med":4.473111,"max":4.473111}
+  APROBADO: p(95)<500
+http_req_failed: {"rate":0,"passes":0,"fails":7}
+  APROBADO: rate==0
+http_req_blocked: {"avg":0.04712585714285715,"min":0.002396,"med":0.002894,"max":0.31254,"p(90)":0.1273284000000001,"p(95)":0.21993419999999975}
+iteration_duration: {"min":1078.755089,"med":1078.755089,"max":1078.755089,"p(90)":1078.755089,"p(95)":1078.755089,"avg":1078.755089}
+checks: {"rate":1,"passes":23,"fails":0}
+  APROBADO: rate==1
+http_req_connecting: {"avg":0.015094999999999999,"min":0,"med":0,"max":0.105665,"p(90)":0.04226600000000003,"p(95)":0.07396549999999992}
+http_req_duration{paso:verificar_actualizacion}: {"p(95)":2.609913,"avg":2.609913,"min":2.609913,"med":2.609913,"max":2.609913,"p(90)":2.609913}
+  APROBADO: p(95)<500
+http_req_duration{paso:crear}: {"p(90)":12.819472,"p(95)":12.819472,"avg":12.819472,"min":12.819472,"med":12.819472,"max":12.819472}
+  APROBADO: p(95)<500
+http_req_tls_handshaking: {"avg":0,"min":0,"med":0,"max":0,"p(90)":0,"p(95)":0}
+data_sent: {"count":1129,"rate":1046.1980050190168}
+iterations: {"rate":0.9266589947024063,"count":1}
+
+Verificaciones:
+listar: HTTP 200: 1 aprobados, 0 fallidos
+listar: data.pizzas_disponibles es array: 1 aprobados, 0 fallidos
+crear: HTTP 201: 1 aprobados, 0 fallidos
+crear: id correcto: 1 aprobados, 0 fallidos
+crear: nombre correcto: 1 aprobados, 0 fallidos
+crear: descripcion correcta: 1 aprobados, 0 fallidos
+crear: propiedad _id: 1 aprobados, 0 fallidos
+consultar: HTTP 200: 1 aprobados, 0 fallidos
+consultar: id correcto: 1 aprobados, 0 fallidos
+consultar: nombre correcto: 1 aprobados, 0 fallidos
+consultar: descripcion correcta: 1 aprobados, 0 fallidos
+actualizar: HTTP 200: 1 aprobados, 0 fallidos
+actualizar: id correcto: 1 aprobados, 0 fallidos
+actualizar: nombre correcto: 1 aprobados, 0 fallidos
+actualizar: descripcion correcta: 1 aprobados, 0 fallidos
+verificar_actualizacion: HTTP 200: 1 aprobados, 0 fallidos
+verificar_actualizacion: id correcto: 1 aprobados, 0 fallidos
+verificar_actualizacion: nombre correcto: 1 aprobados, 0 fallidos
+verificar_actualizacion: descripcion correcta: 1 aprobados, 0 fallidos
+eliminar: HTTP 200: 1 aprobados, 0 fallidos
+eliminar: id correcto: 1 aprobados, 0 fallidos
+verificar_eliminacion: HTTP 404: 1 aprobados, 0 fallidos
+verificar_eliminacion: propiedad message: 1 aprobados, 0 fallidos

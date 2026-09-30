@@ -1,0 +1,62 @@
+Resultados k6 — carga
+URL: http://localhost:3000
+
+Métricas (duraciones en ms):
+http_req_blocked: {"p(90)":0.004100400000000001,"p(95)":0.004925899999999999,"avg":0.0051662228571428635,"min":0.000991,"med":0.002428,"max":0.535931}
+http_req_receiving: {"avg":0.03888950857142857,"min":0.01211,"med":0.036558999999999994,"max":0.142073,"p(90)":0.05835760000000001,"p(95)":0.06720344999999998}
+http_req_duration{paso:crear}: {"p(90)":6.745351999999998,"p(95)":8.058997699999992,"avg":4.7144137666666674,"min":1.637108,"med":4.4718575000000005,"max":18.426035}
+  APROBADO: p(95)<500
+http_req_duration{paso:verificar_eliminacion}: {"avg":2.493500933333335,"min":0.695704,"med":2.285098,"max":6.55739,"p(90)":4.348081,"p(95)":4.726801499999999}
+  APROBADO: p(95)<500
+data_sent: {"count":169350,"rate":5490.390727243094}
+iterations: {"count":150,"rate":4.863056445742333}
+http_req_connecting: {"avg":0.0010594028571428572,"min":0,"med":0,"max":0.235532,"p(90)":0,"p(95)":0}
+http_req_duration{paso:consultar}: {"p(90)":4.585617499999999,"p(95)":5.3998591499999975,"avg":3.0423565733333335,"min":0.816279,"med":2.963762,"max":7.226884}
+  APROBADO: p(95)<500
+http_req_duration{paso:eliminar}: {"max":8.742419,"p(90)":6.3419504,"p(95)":7.08652,"avg":4.120527986666665,"min":1.221437,"med":3.9689595}
+  APROBADO: p(95)<500
+http_req_duration{expected_response:true}: {"avg":3.500721413333334,"min":0.695704,"med":3.2100775,"max":18.426035,"p(90)":5.612979500000002,"p(95)":6.542072299999999}
+http_req_waiting: {"p(95)":6.496078949999999,"avg":3.451483902857145,"min":0.663706,"med":3.1667725,"max":18.349466,"p(90)":5.570967100000001}
+http_req_duration{paso:actualizar}: {"avg":4.361095533333334,"min":1.332183,"med":4.2280785000000005,"max":9.175734,"p(90)":6.3109391,"p(95)":7.444867749999994}
+  APROBADO: p(95)<500
+data_received: {"count":443526,"rate":14379.279821028762}
+checks: {"rate":1,"passes":3450,"fails":0}
+  APROBADO: rate==1
+http_req_duration{paso:listar}: {"p(95)":4.5918081999999965,"avg":2.8175072200000004,"min":1.41902,"med":2.3438695,"max":17.3493,"p(90)":3.7525039999999996}
+  APROBADO: p(95)<500
+vus_max: {"value":5,"min":5,"max":5}
+iteration_duration: {"avg":1025.9345991733328,"min":1010.232043,"med":1025.4420380000001,"max":1059.460981,"p(90)":1034.3198737999999,"p(95)":1037.1579026499999}
+http_req_failed: {"rate":0,"passes":0,"fails":1050}
+  APROBADO: rate==0
+vus: {"value":5,"min":5,"max":5}
+http_req_duration: {"avg":3.500721413333334,"min":0.695704,"med":3.2100775,"max":18.426035,"p(90)":5.612979500000002,"p(95)":6.542072299999999}
+http_req_duration{paso:verificar_actualizacion}: {"p(90)":4.764625799999999,"p(95)":5.707453899999995,"avg":2.955647879999999,"min":0.845321,"med":2.8093725000000003,"max":11.950979}
+  APROBADO: p(95)<500
+http_reqs: {"count":1050,"rate":34.041395120196334}
+http_req_tls_handshaking: {"avg":0,"min":0,"med":0,"max":0,"p(90)":0,"p(95)":0}
+http_req_sending: {"max":0.117051,"p(90)":0.015075300000000002,"p(95)":0.0189311,"avg":0.010348001904761898,"min":0.003096,"med":0.008888}
+
+Verificaciones:
+listar: HTTP 200: 150 aprobados, 0 fallidos
+listar: data.pizzas_disponibles es array: 150 aprobados, 0 fallidos
+crear: HTTP 201: 150 aprobados, 0 fallidos
+crear: id correcto: 150 aprobados, 0 fallidos
+crear: nombre correcto: 150 aprobados, 0 fallidos
+crear: descripcion correcta: 150 aprobados, 0 fallidos
+crear: propiedad _id: 150 aprobados, 0 fallidos
+consultar: HTTP 200: 150 aprobados, 0 fallidos
+consultar: id correcto: 150 aprobados, 0 fallidos
+consultar: nombre correcto: 150 aprobados, 0 fallidos
+consultar: descripcion correcta: 150 aprobados, 0 fallidos
+actualizar: HTTP 200: 150 aprobados, 0 fallidos
+actualizar: id correcto: 150 aprobados, 0 fallidos
+actualizar: nombre correcto: 150 aprobados, 0 fallidos
+actualizar: descripcion correcta: 150 aprobados, 0 fallidos
+verificar_actualizacion: HTTP 200: 150 aprobados, 0 fallidos
+verificar_actualizacion: id correcto: 150 aprobados, 0 fallidos
+verificar_actualizacion: nombre correcto: 150 aprobados, 0 fallidos
+verificar_actualizacion: descripcion correcta: 150 aprobados, 0 fallidos
+eliminar: HTTP 200: 150 aprobados, 0 fallidos
+eliminar: id correcto: 150 aprobados, 0 fallidos
+verificar_eliminacion: HTTP 404: 150 aprobados, 0 fallidos
+verificar_eliminacion: propiedad message: 150 aprobados, 0 fallidos
